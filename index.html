@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>我们的爱情故事 💕</title>
+  <style>
+    :root{
+      --bg1:#fff0f5; --bg2:#ffe4e1; --primary:#d6336c; --accent:#ff7aa2; --card:#ffffff; --text:#333; --muted:#6b7280;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0; font-family: "PingFang SC","Microsoft YaHei",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans CJK SC",sans-serif;
+      color:var(--text);
+      background:linear-gradient(120deg,var(--bg1),var(--bg2));
+      line-height:1.7;
+    }
+    .wrap{max-width:900px; margin:0 auto; padding:28px 18px 64px;}
+    header{ text-align:center; margin:10px 0 28px;}
+    h1{ font-size:clamp(28px,5vw,44px); color:var(--primary); margin:0 0 6px; display:flex; align-items:center; justify-content:center; gap:.4em; }
+    .heart{ display:inline-block; animation:beat 1.3s infinite; }
+    @keyframes beat{ 0%,100%{ transform:scale(1);} 50%{ transform:scale(1.15);} }
+    .sub{ color:var(--muted); font-size:14px; }
+
+    .timeline{ position:relative; margin:34px auto; padding-left:22px; max-width:760px; }
+    .timeline::before{ content:""; position:absolute; left:8px; top:0; bottom:0; width:3px; background:linear-gradient(var(--accent),#ffc1d6); border-radius:2px; }
+
+    .event{ position:relative; margin:22px 0; opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+    .event.show{ opacity:1; transform:none; }
+    .dot{ position:absolute; left:-2px; top:.55rem; width:14px; height:14px; border-radius:50%; background:var(--primary); box-shadow:0 0 0 4px rgba(214,51,108,.15); }
+    .card{ background:var(--card); border-radius:14px; padding:16px 18px; box-shadow:0 10px 24px rgba(214,51,108,.08), 0 4px 8px rgba(0,0,0,.05); }
+    .date{ color:#c2185b; font-weight:700; margin-bottom:6px; font-size:16px; }
+
+    .divider{ height:1px; background:rgba(214,51,108,.25); margin:28px auto; max-width:760px; border-radius:1px; }
+
+    h2{ color:#c2185b; font-size:20px; margin:8px 0 12px; }
+    ul.pretty{ list-style:none; padding-left:0; margin:0; }
+    ul.pretty li{ position:relative; padding-left:24px; margin:6px 0; }
+    ul.pretty li::before{ content:"▸"; position:absolute; left:0; color:var(--primary); }
+
+    footer{ text-align:center; color:var(--muted); font-size:13px; margin-top:36px; }
+
+    .toolbar{ position:sticky; top:0; backdrop-filter:blur(8px); background:rgba(255,240,245,.8); border-bottom:1px solid rgba(214,51,108,.15); padding:8px 10px; display:flex; justify-content:center; gap:12px; z-index:10; }
+    .btn{ border:1px solid rgba(214,51,108,.35); background:#fff; color:var(--primary); padding:8px 12px; border-radius:999px; cursor:pointer; font-weight:600; box-shadow:0 2px 6px rgba(214,51,108,.15);
+      transition:transform .08s ease, box-shadow .2s ease, background .2s ease; }
+    .btn:hover{ transform:translateY(-1px); box-shadow:0 6px 14px rgba(214,51,108,.18); }
+
+    /* Print styles */
+    @media print{
+      .toolbar{ display:none; }
+      body{ background:#fff; }
+      .wrap{ padding:0; }
+      .timeline::before{ background:#bbb; }
+      .card{ box-shadow:none; border:1px solid #ddd; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1><span class="heart">💕</span> 我们的爱情故事 <span class="heart">💕</span></h1>
+      <div class="sub">用细小而真实的瞬间，拼成我们的大冒险</div>
+    </header>
+
+    <section class="timeline" id="timeline">
+      <!-- 2025-06-02 -->
+      <article class="event card">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="date">2025年6月2日 — 初遇的火花</div>
+        <div>那天，我主动帮你完成毕业项目的问卷，还用Python写了coding，automate了800份response，再调整成bell-shaped graph，方便你在SPSS里分析。你轻声说了一句“谢谢”，简单却真挚，让我心里忽然一暖。或许就是从这一刻起，我们的故事好像就悄悄开始了。💻❤️</div>
+      </article>
+
+      <!-- 2025-06-04 -->
+      <article class="event card">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="date">2025年6月4日 — 深夜的默契</div>
+        <div>我帮你安装了SPSS、Foxit PDF编辑器和Microsoft Office，还用AnyDesk远程调试电脑。我们从软件聊到生活小技巧，不知不觉到深夜。我打趣说自己是“软件王”，其实只是想让你多找我，哪怕多开一次Google Meet，也是一种默契朋友上的陪伴。🕯️😊</div>
+      </article>
+
+      <!-- 2025-06-05 -->
+      <article class="event card">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="date">2025年6月5日 — 小玩笑，大温暖</div>
+        <div>凌晨时分，我们还在聊PDF的编辑功能，我教你合并文件，劝你别再用“I love pdf”。我们开始分享生活趣事和小秘密，那一刻，我感受到，我们的关系好像不只是“帮忙”，而是多了一份特别的默契。😄✨</div>
+      </article>
+
+      <!-- 2025-06-08 -->
+      <article class="event card">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="date">2025年6月8日 — 一起解决难题</div>
+        <div>你说SPSS数据导入有问题，我建议别再手动输入，太浪费时间。于是我们约好在Google Meet一起解决。你称我为“救星”，但其实我更开心能帮到你。那种信任一点点建立起来，让我开始期待每一次和你聊天。💪💖</div>
+      </article>
+
+      <!-- 2025-06-10 -->
+      <article class="event card">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="date">2025年6月10日 — 并肩作战</div>
+        <div>当你的Cronbach's alpha值过低（&lt;0.5）让你焦急时，我很冷静地再次在Google Meet陪你一起调整数据，化解难关。你笑说“没有你就完了”，我却觉得，能在你需要时出现，是好像是一种说不出甜蜜的幸福。🖥️😍</div>
+      </article>
+
+      <!-- 2025-06-13 -->
+      <article class="event card">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="date">2025年6月13日 — 互相扶持</div>
+        <div>我因为CGPA 3.4被拒绝面试，心里有点失落，就和你聊起找工作的事。你真心推荐了Kulim的Jabil和FMD Drill，还说可以帮我内推。你仔细看我的简历，认真给我建议。那一刻，我感动又暗爽，因为有人愿意用自己的名义帮我。🤝💞</div>
+      </article>
+
+      <!-- 2025-06-21 -->
+      <article class="event card">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="date">2025年6月21日 — 你的用心</div>
+        <div>你帮我把简历转发给Kulim的朋友，虽然有人说我的能力不适合机器编码，但你的努力让我很感动。后来我去参加CodeTrace面试，第一时间就想和你分享。你轻轻一句“加油”，却让我有了更多勇气。🌟😊</div>
+      </article>
+
+      <!-- 2025-08-09 -->
+      <article class="event card">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="date">2025年8月9日 — 第一次约会计划</div>
+        <div>我们计划去吃韩式烧烤，选了“Thai to Busan”，因为你喜欢韩式但爸妈不常陪你吃。平时拒绝朋友全部关于韩国餐的我既然破例接受尝试了。我们聊起了美食、家庭传统和小时候的趣事。想到终于能和你面对面吃饭，前一晚我兴奋到睡不着。那时我只希望，通过更多的交谈，能慢慢确认：你是不是我一直等待的那个人。星期日其实是我故意不找你，希望你来找我聊天，结果还差一点以为我没戏了。🍲💓</div>
+      </article>
+
+      <!-- 2025-08-19 -->
+      <article class="event card">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="date">2025年8月19日 — 心动的告白</div>
+        <div>今天，你问我：“愿不愿意做我的男朋友？”我愣了一下，但心里早已（吃韩国餐的晚上后）喊着“愿意”。那天我刚好出席远方亲戚的丧礼，和长辈们在一起，所以没能在最合适的环境回应你。但心跳的感觉告诉我，也许这就是我们的第一天。本来打算星期六约爬山，因为星期四有考试到下午，但又好像等不及了，主动地改到星期五爬山。就算考试很疲劳，又好像变成“不要紧”去了。💕😍</div>
+      </article>
+
+      <!-- 2025-08-22 -->
+      <article class="event card">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="date">2025年8月22日 — 心动的告白</div>
+        <div>爬山记：希望当天可以感情升温，而不是降温。给我自己一个加油吧！💕😍</div>
+      </article>
+
+      <div class="divider" role="separator" aria-label="分隔线"></div>
+
+      <!-- 真心的话 -->
+      <article class="event card">
+        <span class="dot" aria-hidden="true"></span>
+        <h2>真心的话</h2>
+        <div>
+          我现在刚起步创业，还在大学读书，实习收入有限，只能勉强维持简单节俭的生活。你愿意和我一起并肩奋斗，携手走向未来吗？有时我会担心，你会不会在意我的处境。<br><br>
+          我期待的另一半，是这样的人：
+          <ul class="pretty">
+            <li>性格开朗、待人礼貌</li>
+            <li>孝敬长辈</li>
+            <li>消费节俭、愿意学习理财</li>
+            <li>体贴温柔</li>
+            <li>适度独立、我有时侯忙起来可能不能马上回复你（紧急事件除外）</li>
+            <li>有责任感</li>
+            <li>对感情专一、愿意追求天长地久</li>
+            <li>顾家贤惠，在未来感情上如果真的非常稳定后，愿意与我一起建立家庭，结婚生子</li>
+          </ul>
+          也许我的择偶要求显得有点多，可以说我在感情上比较谨慎吧。但这也是我至今依然单身的原因。💌
+          <br>
+          但经过我这几个礼拜的观察发现你还蛮符合的吧。
+        </div>
+      </article>
+
+      <div class="divider" role="separator" aria-label="分隔线"></div>
+
+      <!-- 未来 — 爱的冒险 -->
+      <article class="event card">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="date">未来 — 爱的冒险</div>
+        <div>我真的蛮想和你一起看更多的风景，吃更多的美食，分享更多的笑声。无论是牵手散步，还是并肩追梦，我都希望未来的每一天，都能和你一起书写属于我们的幸福。我们的爱情故事，才刚刚开始，是不是真的呢芸芸？。🌈💫</div>
+      </article>
+
+    </section>
+
+    <footer>
+      © <span id="yr"></span> FC & KY Sdn. Bhd.
+      <br>
+      All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    // 年份
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // 简单滚动显隐动画
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+    },{ threshold:.12 });
+    document.querySelectorAll('.event').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
