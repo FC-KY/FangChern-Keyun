@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>我们的爱情故事 💕</title>
+
   <style>
     :root{
       --bg1:#fff0f5; --bg2:#ffe4e1; --primary:#d6336c; --accent:#ff7aa2; --card:#ffffff; --text:#333; --muted:#6b7280;
@@ -56,6 +57,20 @@
   </style>
 </head>
 <body>
+  <audio id="bgMusic" autoplay loop hidden>
+    <source src="romantic-music.mp3" type="audio/mpeg" />
+    您的浏览器不支持音频播放。
+  </audio>
+
+  <!-- Forced modal -->
+  <!-- <div id="startModal" class="modal">
+    <div class="modal-content">
+      <h2>准备好了吗？💖</h2>
+      <p>点击下面按钮，开启我们的爱情故事。</p>
+      <button onclick="startStory()">Start Now</button>
+    </div>
+  </div> -->
+  
   <div class="wrap">
     <header>
       <h1><span class="heart">💕</span> 属于我们的爱情故事 <span class="heart">💕</span></h1>
@@ -185,6 +200,17 @@
       entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
     },{ threshold:.12 });
     document.querySelectorAll('.event').forEach(el=>io.observe(el));
+  </script>
+
+  <script>
+    // start button
+    document.getElementById("startBtn").addEventListener("click", ()=>{
+      const bg = document.getElementById("bgMusic");
+      bg.muted = false;
+      bg.volume = 1.0;
+      bg.play();
+      document.getElementById("modal").style.display = "none"; // hide modal
+    });
   </script>
 </body>
 </html>
