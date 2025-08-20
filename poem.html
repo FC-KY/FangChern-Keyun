@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Sakura Poem for You</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #ffeaf4, #fffdfd);
+      font-family: "Georgia", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .poem-box {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      /* max-width: 1000px; */
+    }
+    h1 {
+      color: #d6336c;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #444;
+    }
+    /* Sakura petals */
+    .petal {
+      position: fixed;
+      top: -10vh;
+      background: pink;
+      border-radius: 50%;
+      opacity: 0.8;
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.5;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" autoplay loop hidden>
+    <source src="the-power-of-love.mp3" type="audio/mpeg" />
+    您的浏览器不支持音频播放。
+  </audio>
+
+  <div class="poem-box">
+    <h1>🌸 Specially For My Lovely Keyun 🌸</h1>
+    <h3>by your FangChern</h3>
+    <br>
+    <p>
+        Roses are beautiful, <br>
+        but they fade too soon. <br>
+        Chocolate are sweet, <br>
+        But they melt in a blink. <br><br>
+
+        I want to give you something different, <br>
+        Something strong, beyond compare. <br>
+        Not just a gift that fades too soon, <br>
+        But our chemical bond under the moon. 🌙💞 <br><br>
+
+        These energy bars are more than a snack. <br>
+        They carry nutrients, energy and my love. <br>
+        You give me strength every single day, <br>
+        So I give you strength when I cannot be by your side. <br><br>
+
+        It may look simple, but it holds a valuable meaning — <br>
+        a gentle reminder of my care for you. <br>
+        Not fading, not melting, but lasting, <br>
+        to keep my little rabbit glowing bright and strong. 💕 <br>
+    </p>
+  </div>
+
+  <script>
+    function createPetal() {
+      const petal = document.createElement("div");
+      petal.classList.add("petal");
+      const size = Math.random() * 10 + 8;
+      petal.style.width = size + "px";
+      petal.style.height = size * 0.8 + "px";
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      petal.style.background = "radial-gradient(circle, #ffb7c5, #ff69b4)";
+      document.body.appendChild(petal);
+
+      setTimeout(() => {
+        petal.remove();
+      }, 10000);
+    }
+    setInterval(createPetal, 300);
+  </script>
+
+    <script>
+    // start button
+    document.getElementById("startBtn").addEventListener("click", ()=>{
+      const bg = document.getElementById("bgMusic");
+      bg.muted = false;
+      bg.volume = 1.0;
+      bg.play();
+      document.getElementById("modal").style.display = "none"; // hide modal
+    });
+  </script>
+</body>
+</html>
