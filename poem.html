@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Sakura Poem for You</title>
+  <title>Energy Bar</title>
   <style>
     body {
       margin: 0;
@@ -74,10 +74,10 @@
   </style>
 </head>
 <body>
-  <audio id="bgMusic" loop>
+    <audio id="bgMusic" autoplay loop playsinline>
     <source src="the-power-of-love.mp3" type="audio/mpeg" />
     Your browser does not support audio playback.
-  </audio>
+    </audio>
 
   <!-- Modal -->
   <div id="modal">
@@ -85,8 +85,8 @@
   </div>
 
   <div class="poem-box">
-    <h1>🌸 Specially For My Lovely Keyun 🌸</h1>
-    <h3>by your FangChern</h3>
+    <h1>✨ Specially for My dearest Keyun 🌸</h1>
+    <h3>With love, from your FangChern</h3>
     <br>
     <p>
         Roses are beautiful, <br>
@@ -111,38 +111,36 @@
     </p>
   </div>
 
+    <!-- Sakura Petals Script -->
     <script>
-    // Sakura petals generator
     function createPetal() {
         const petal = document.createElement("div");
         petal.classList.add("petal");
+
         const size = Math.random() * 10 + 8;
         petal.style.width = size + "px";
         petal.style.height = size * 0.8 + "px";
         petal.style.left = Math.random() * 100 + "vw";
         petal.style.animationDuration = (Math.random() * 5 + 5) + "s";
         petal.style.background = "radial-gradient(circle, #ffb7c5, #ff69b4)";
+
         document.body.appendChild(petal);
 
         setTimeout(() => {
         petal.remove();
         }, 10000);
     }
+
     setInterval(createPetal, 300);
+    </script>
 
-    // Start music on button click
-    document.getElementById("startBtn").addEventListener("click", () => {
+    <!-- Background Music Script -->
+    <script>
+    window.addEventListener("load", () => {
         const bg = document.getElementById("bgMusic");
-        bg.muted = false;
-        bg.volume = 1.0;
-        bg.play();
-
-        // Auto-pause after 3 seconds
-        setTimeout(() => {
-        bg.pause();
-        }, 3000);
-
-        document.getElementById("modal").style.display = "none";
+        bg.muted = false;   // unmute after page loads
+        bg.volume = 0.6;
+        bg.play().catch(err => console.log("Autoplay blocked:", err));
     });
     </script>
 
