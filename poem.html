@@ -22,6 +22,7 @@
       border-radius: 16px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.2);
       z-index: 1;
+      display: none; /* hidden by default */
     }
     h1 {
       color: #d6336c;
@@ -52,7 +53,7 @@
     #modal {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.85);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -63,8 +64,8 @@
       background: #d6336c;
       color: white;
       border: none;
-      border-radius: 8px;
-      font-size: 20px;
+      border-radius: 12px;
+      font-size: 22px;
       cursor: pointer;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
@@ -74,17 +75,17 @@
   </style>
 </head>
 <body>
-    <audio id="bgMusic" autoplay loop playsinline>
+  <audio id="bgMusic" loop>
     <source src="the-power-of-love.mp3" type="audio/mpeg" />
     Your browser does not support audio playback.
-    </audio>
+  </audio>
 
   <!-- Modal -->
-  <!-- <div id="modal">
-    <button id="startBtn">💖 Start Poem 💖</button>
-  </div> -->
+  <div id="modal">
+    <button id="startBtn">Honey, I'm ready now!</button>
+  </div>
 
-  <div class="poem-box">
+  <div class="poem-box" id="poem">
     <h1>✨ Specially for My dearest Keyun 🌸</h1>
     <h3>With love, from your FangChern</h3>
     <br>
@@ -92,57 +93,57 @@
         Roses are beautiful, <br>
         but they fade too soon. <br>
         Chocolate are sweet, <br>
-        But they melt in a blink. <br><br>
+        But they melt in a blink. 📉<br><br>
 
         I want to give you something different, <br>
         Something strong, beyond compare. <br>
         Not just a gift that fades too soon, <br>
-        But our chemical bond under the moon. 🌙💞 <br><br>
+        But our chemical bond under the moon. 🌙 <br><br>
 
         These energy bars are more than a snack. <br>
         They carry nutrients, energy and my love. <br>
         You give me strength every single day, <br>
-        So I give you strength when I cannot be by your side. <br><br>
+        So I recharge your strength when I can't be by your side. 🔋<br><br>
 
         It may look simple, but it holds a valuable meaning — <br>
         a gentle reminder of my care for you. <br>
-        Not fading, not melting, but lasting, <br>
+        Not fading ❌, not melting ❌, but lasting ✅, <br>
         to keep my little rabbit glowing bright and strong. 💕 <br>
     </p>
   </div>
 
-    <!-- Sakura Petals Script -->
-    <script>
+  <!-- Sakura Petals Script -->
+  <script>
     function createPetal() {
-        const petal = document.createElement("div");
-        petal.classList.add("petal");
+      const petal = document.createElement("div");
+      petal.classList.add("petal");
 
-        const size = Math.random() * 10 + 8;
-        petal.style.width = size + "px";
-        petal.style.height = size * 0.8 + "px";
-        petal.style.left = Math.random() * 100 + "vw";
-        petal.style.animationDuration = (Math.random() * 5 + 5) + "s";
-        petal.style.background = "radial-gradient(circle, #ffb7c5, #ff69b4)";
+      const size = Math.random() * 10 + 8;
+      petal.style.width = size + "px";
+      petal.style.height = size * 0.8 + "px";
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      petal.style.background = "radial-gradient(circle, #ffb7c5, #ff69b4)";
 
-        document.body.appendChild(petal);
-
-        setTimeout(() => {
-        petal.remove();
-        }, 10000);
+      document.body.appendChild(petal);
+      setTimeout(() => petal.remove(), 10000);
     }
+  </script>
 
-    setInterval(createPetal, 300);
-    </script>
-
-    <!-- Background Music Script -->
-    <script>
-    window.addEventListener("load", () => {
-        const bg = document.getElementById("bgMusic");
-        bg.muted = false;   // unmute after page loads
-        bg.volume = 0.6;
-        bg.play().catch(err => console.log("Autoplay blocked:", err));
+  <!-- Start Button Script -->
+  <script>
+    document.getElementById("startBtn").addEventListener("click", () => {
+      const bg = document.getElementById("bgMusic");
+      bg.volume = 0.6;
+      bg.play().then(() => {
+        // hide modal and show poem + petals
+        document.getElementById("modal").style.display = "none";
+        document.getElementById("poem").style.display = "block";
+        setInterval(createPetal, 300);
+      }).catch(err => {
+        console.log("Autoplay blocked:", err);
+      });
     });
-    </script>
-
+  </script>
 </body>
 </html>
