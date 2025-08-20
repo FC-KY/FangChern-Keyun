@@ -139,7 +139,7 @@
         // hide modal and show poem + petals
         document.getElementById("modal").style.display = "none";
         document.getElementById("poem").style.display = "block";
-        // setInterval(createPetal, 300);
+        setInterval(createPetal, 300);
       }).catch(err => {
         console.log("Autoplay blocked:", err);
       });
