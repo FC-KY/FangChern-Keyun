@@ -21,7 +21,7 @@
       padding: 40px;
       border-radius: 16px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-      /* max-width: 1000px; */
+      z-index: 1;
     }
     h1 {
       color: #d6336c;
@@ -36,7 +36,6 @@
     .petal {
       position: fixed;
       top: -10vh;
-      background: pink;
       border-radius: 50%;
       opacity: 0.8;
       pointer-events: none;
@@ -48,13 +47,42 @@
         opacity: 0.5;
       }
     }
+
+    /* Start modal */
+    #modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+    #startBtn {
+      padding: 16px 32px;
+      background: #d6336c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    #startBtn:hover {
+      background: #b32a57;
+    }
   </style>
 </head>
 <body>
-  <audio id="bgMusic" autoplay loop hidden>
+  <audio id="bgMusic" loop>
     <source src="the-power-of-love.mp3" type="audio/mpeg" />
-    您的浏览器不支持音频播放。
+    Your browser does not support audio playback.
   </audio>
+
+  <!-- Modal -->
+  <div id="modal">
+    <button id="startBtn">💖 Start Poem 💖</button>
+  </div>
 
   <div class="poem-box">
     <h1>🌸 Specially For My Lovely Keyun 🌸</h1>
@@ -83,34 +111,40 @@
     </p>
   </div>
 
-  <script>
+    <script>
+    // Sakura petals generator
     function createPetal() {
-      const petal = document.createElement("div");
-      petal.classList.add("petal");
-      const size = Math.random() * 10 + 8;
-      petal.style.width = size + "px";
-      petal.style.height = size * 0.8 + "px";
-      petal.style.left = Math.random() * 100 + "vw";
-      petal.style.animationDuration = (Math.random() * 5 + 5) + "s";
-      petal.style.background = "radial-gradient(circle, #ffb7c5, #ff69b4)";
-      document.body.appendChild(petal);
+        const petal = document.createElement("div");
+        petal.classList.add("petal");
+        const size = Math.random() * 10 + 8;
+        petal.style.width = size + "px";
+        petal.style.height = size * 0.8 + "px";
+        petal.style.left = Math.random() * 100 + "vw";
+        petal.style.animationDuration = (Math.random() * 5 + 5) + "s";
+        petal.style.background = "radial-gradient(circle, #ffb7c5, #ff69b4)";
+        document.body.appendChild(petal);
 
-      setTimeout(() => {
+        setTimeout(() => {
         petal.remove();
-      }, 10000);
+        }, 10000);
     }
     setInterval(createPetal, 300);
-  </script>
 
-    <script>
-    // start button
-    document.getElementById("startBtn").addEventListener("click", ()=>{
-      const bg = document.getElementById("bgMusic");
-      bg.muted = false;
-      bg.volume = 1.0;
-      bg.play();
-      document.getElementById("modal").style.display = "none"; // hide modal
+    // Start music on button click
+    document.getElementById("startBtn").addEventListener("click", () => {
+        const bg = document.getElementById("bgMusic");
+        bg.muted = false;
+        bg.volume = 1.0;
+        bg.play();
+
+        // Auto-pause after 3 seconds
+        setTimeout(() => {
+        bg.pause();
+        }, 3000);
+
+        document.getElementById("modal").style.display = "none";
     });
-  </script>
+    </script>
+
 </body>
 </html>
