@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Love Letter</title>
+  <style>
+    body { font-family: 'Courier New', monospace; background:#fff8f8; display:flex; justify-content:center; align-items:center; height:100vh; }
+    .letter { border:2px solid #f4bcbc; padding:20px; border-radius:10px; max-width:500px; background:white; box-shadow:0 0 10px rgba(0,0,0,0.1);}
+    #text { white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <div class="letter">
+    <h2>Dear You ❤️</h2>
+    <p id="text"></p>
+  </div>
+<script>
+  const message = "I may not have flowers to give,\nBut I give you my heart, my time, and my sincerity.\n\nThank you for choosing me 💕";
+  let i=0;
+  function type() {
+    if (i < message.length) {
+      document.getElementById("text").innerHTML += message.charAt(i);
+      i++;
+      setTimeout(type, 50);
+    }
+  }
+  type();
+</script>
+</body>
+</html>

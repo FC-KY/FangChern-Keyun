@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Digital Bouquet</title>
+  <style>
+    body { text-align:center; background:#f0fff0; font-family:Arial; padding-top:50px; }
+    .flower { display:inline-block; margin:20px; cursor:pointer; }
+    .petal { width:50px; height:50px; background:pink; border-radius:50%; position:relative; display:inline-block; }
+    .petal::after { content:''; width:50px; height:50px; background:pink; border-radius:50%; position:absolute; top:0; left:0; transform:rotate(45deg); }
+  </style>
+</head>
+<body>
+  <h2>🌸 A Bouquet Just for You 🌸</h2>
+  <div class="flower" onclick="alert('You make my world brighter 🌞')"><div class="petal"></div></div>
+  <div class="flower" onclick="alert('My feelings will never fade, just like this flower 🌹')"><div class="petal"></div></div>
+  <div class="flower" onclick="alert('Thank you for being mine 💕')"><div class="petal"></div></div>
+</body>
+</html>
